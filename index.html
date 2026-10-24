@@ -473,6 +473,7 @@ a.idea .more{display:inline-block;margin-top:10px;font-size:13px;font-weight:600
 <button type="button" class="btn" id="installbtn" hidden>Install the app</button></div>
 <script>let dp;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;const b=document.getElementById('installbtn');b.hidden=false;b.onclick=async()=>{dp.prompt();await dp.userChoice;b.hidden=true}});</script>
   <p>Header imagery © Esri, Maxar, Earthstar Geographics. The chart of the islands is drawn from OpenStreetMap data (© OpenStreetMap contributors, tiles by OpenFreeMap). Distillery photographs from Wikimedia Commons, credited on each distillery's page. Routes follow the mapped roads and ferry lines; walking routes follow the road the path runs beside. This is a private trip guide, not an official site of any distillery.</p>
+  <p class="updated">Last updated 24 October 2026.</p>
   <p>Check before booking: <a href="https://www.loganair.co.uk/en-gb/flights-to-islay" target="_blank" rel="noopener">Loganair to Islay</a> · <a href="https://www.britishairways.com/" target="_blank" rel="noopener">British Airways</a> · <a href="https://www.islayinfo.com/do/boat-trips" target="_blank" rel="noopener">Islay boat trips</a></p>
 </div></footer>
 
