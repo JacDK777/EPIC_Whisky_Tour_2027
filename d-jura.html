@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#13243A"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Islay 40"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jura</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root{--accent:#7E2F2F;--accent-d:#E59A9A;--accent-soft:color-mix(in srgb,#7E2F2F 12%,transparent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--accent:#E59A9A;--accent-soft:color-mix(in srgb,#E59A9A 16%,transparent)}}
+:root[data-theme="dark"]{--accent:#E59A9A;--accent-soft:color-mix(in srgb,#E59A9A 16%,transparent)}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+.tourpick{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}
+.tp-main,.tp-side{background:var(--surface);border:1px solid var(--line);padding:22px;display:grid;gap:12px}
+.tp-main{border-top:4px solid var(--accent)}
+.tp-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tp-facts div,.plotcard div{display:grid;gap:2px}
+.tp-facts small,.plotcard small{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tp-facts b,.plotcard b{font-family:var(--display);font-size:21px;font-weight:600}
+.tp-lede{font-family:var(--display);font-size:21px;line-height:1.35}
+.hlist{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--muted)}
+.hlist b{color:var(--ink);font-weight:600}
+.hlist a{color:var(--accent);font-weight:600}
+.hnote{color:var(--muted);border-left:2px solid var(--accent);padding-left:12px;font-size:15px}
+.tp-main .btn{justify-self:start;border-color:var(--accent);color:var(--accent)}
+.tp-main .btn:hover{background:var(--accent);color:var(--surface)}
+.tp-side h3{font-size:21px;margin-top:6px}
+.score{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.score b{font-family:var(--display);font-size:38px;font-weight:600;color:var(--accent);line-height:1}
+.score span{color:var(--muted);font-size:14px}
+.sub-h{font-size:24px;margin:28px 0 10px}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line)}
+.opts{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.opts th,.opts td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.opts thead th{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.opts tbody th{font-family:var(--display);font-size:19px;font-weight:600}
+.opts tr.pick{background:var(--accent-soft)}
+.opts tr.pick th{color:var(--accent)}
+.opts td:last-child{color:var(--muted)}
+.opts td:nth-child(2),.opts td:nth-child(3){white-space:nowrap}
+.friends{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.fr-text{display:grid;gap:14px}
+.fr-text h3{font-size:22px}
+.plotcard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);padding:16px 18px}
+.fr-map{margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.plotmap{width:100%;height:auto;display:block}
+.fr-map figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+.pegal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pegal figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--navy)}
+.pegal figure.wide{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.pegal img{width:100%;height:100%;object-fit:cover}
+.pegal figure:last-child:nth-child(8){grid-column:span 2;aspect-ratio:8/3}
+.pegal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 12px 8px;font-size:13px;color:#fff;background:linear-gradient(transparent,rgba(8,14,20,.75))}
+@media (max-width:760px){.tourpick,.friends{grid-template-columns:1fr}.pegal{grid-template-columns:1fr 1fr}.pegal figure.wide{grid-column:span 2;grid-row:auto;aspect-ratio:3/2}.pegal figure:last-child:nth-child(8){aspect-ratio:3/2}.plotcard{grid-template-columns:1fr}}
+
+.story-first{padding-bottom:0}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 24px;align-items:start}
+.story p{margin:0 0 12px;color:var(--muted);grid-column:1}
+.story p:first-child{font-family:var(--display);font-size:21px;line-height:1.35;color:var(--ink)}
+.story .st-img{grid-column:2;grid-row:1 / span 6;margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.story .st-img img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover}
+.story .st-img figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+@media (max-width:760px){.story{grid-template-columns:1fr}.story .st-img{grid-column:1;grid-row:auto}}
+:root{--m-sea:#D3DEE5;--m-wl:#9DB2C0;--m-land:#EFECE2;--m-coast:#13243A;--m-road:#B9A27A;--m-lake:#C4D4DD;--m-label:#13243A;--m-sealabel:#4C6C84;--m-hill:#7A6A52;--rt-bus:#B47A12;--rt-walk:#13243A;--rt-taxi:#8E3B97;--rt-ferry:#1D6E9E;--rt-flight:#9B2C2C;}@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}}:root[data-theme="dark"]{--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}</style>
+</head><body>
+<div class="topbar"><div class="wrap"><a href="index.html#distilleries">&larr; The Islay week</a><nav><a href="d-ardnahoe.html">&lsaquo; Ardnahoe</a><a href="d-laphroaig.html">Laphroaig &rsaquo;</a></nav></div></div>
+<header class="dhero"><img src="img/ph-jura-2.jpg" alt="Jura distillery"><div class="shade"></div>
+<div class="wrap"><div class="eyebrow">Optional · Day 6 · Thursday 1 July 2027</div><h1>Jura</h1>
+<p class="gd">Diùra <span>· Gaelic for “deer island (from Norse)” · say JOO-ra</span></p></div></header>
+<div class="accentbar"></div>
+<div class="factsband"><div class="wrap facts"><div><small>Founded</small><b class="num">1810</b></div><div><small>On our trip</small><b>Thu 1 July</b></div><div><small>Visitor centre</small><b style="font-size:19px">Mon to Fri, 10:00 to 16:00</b></div><div><small>Peat</small><b>Light</b></div></div></div>
+<main class="wrap">
+<section class="sec story-first"><div class="eyebrow">Seanchas · The story</div><h2>The island distillery that came back</h2><div class="story"><p>The laird, Archibald Campbell, licensed the first distillery here in 1810. It changed hands through the 1800s, and in 1901 the tenants stripped it and walked away.</p><p>By the 1950s Jura's population had fallen to around 250. Two landowners, Robin Fletcher and Tony Riley-Smith, rebuilt the distillery to give the island work, with tall stills designed by William Delmé-Evans to make a lighter, more Highland-style whisky. It started distilling again in 1963, doubled to four stills in 1978, and has belonged to Whyte & Mackay since 1994.</p><p>George Orwell finished Nineteen Eighty-Four at Barnhill, a remote farmhouse at the north end of the island, in the late 1940s.</p><p><b>Look up:</b> the three Paps of Jura rise right behind Craighouse. Beinn an Òir, the highest, is 785 metres.</p><figure class="st-img"><img src="img/jux-9.jpg" alt="Beinn an Òir above Craighouse" loading="lazy"><figcaption>Beinn an Òir above Craighouse</figcaption></figure></div></section>
+<section class="intro"><div><div class="eyebrow" style="color:var(--accent)">The distillery</div><p class="lede" style="margin-top:10px">The only distillery on Jura, an island of 200 people and around 5,000 red deer. George Orwell wrote Nineteen Eighty-Four here. The spirit is light and the stills are among the tallest in Scotland.</p><p class="style"><b style="color:var(--ink)">House style.</b> Light, sweet and approachable. Toffee, orange and a hint of smoke in some bottlings.</p></div>
+<div><svg class="radar" viewBox="0 0 440 340" role="img" aria-label="Flavour profile of Jura: Smoke 1 of 5, Maritime 1.5 of 5, Fruit 3.5 of 5, Sweetness 4 of 5, Spice 2.5 of 5, Body 3 of 5"><polygon points="220.0,147.0 239.9,158.5 239.9,181.5 220.0,193.0 200.1,181.5 200.1,158.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,124.0 259.8,147.0 259.8,193.0 220.0,216.0 180.2,193.0 180.2,147.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,101.0 279.8,135.5 279.8,204.5 220.0,239.0 160.2,204.5 160.2,135.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,78.0 299.7,124.0 299.7,216.0 220.0,262.0 140.3,216.0 140.3,124.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,55.0 319.6,112.5 319.6,227.5 220.0,285.0 120.4,227.5 120.4,112.5" fill="none" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="55.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="112.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="285.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="112.5" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,147.0 249.9,152.8 289.7,210.2 220.0,262.0 170.2,198.8 160.2,135.5" fill="var(--accent)" fill-opacity=".22" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="220.0" cy="147.0" r="4" fill="var(--accent)"/><text x="220.0" y="29.0" text-anchor="middle" dominant-baseline="central">SMOKE<tspan class="val" dx="6">1</tspan></text><circle cx="249.9" cy="152.8" r="4" fill="var(--accent)"/><text x="342.1" y="99.5" text-anchor="start" dominant-baseline="central">MARITIME<tspan class="val" dx="6">1.5</tspan></text><circle cx="289.7" cy="210.2" r="4" fill="var(--accent)"/><text x="342.1" y="240.5" text-anchor="start" dominant-baseline="central">FRUIT<tspan class="val" dx="6">3.5</tspan></text><circle cx="220.0" cy="262.0" r="4" fill="var(--accent)"/><text x="220.0" y="311.0" text-anchor="middle" dominant-baseline="central">SWEETNESS<tspan class="val" dx="6">4</tspan></text><circle cx="170.2" cy="198.8" r="4" fill="var(--accent)"/><text x="97.9" y="240.5" text-anchor="end" dominant-baseline="central">SPICE<tspan class="val" dx="6">2.5</tspan></text><circle cx="160.2" cy="135.5" r="4" fill="var(--accent)"/><text x="97.9" y="99.5" text-anchor="end" dominant-baseline="central">BODY<tspan class="val" dx="6">3</tspan></text></svg><p class="radar-cap">Average flavour profile across the core range, scored 0 to 5. Our own tasting estimate.</p></div></section>
+<section class="sec"><div class="eyebrow">Blasad · What to taste</div><h2>In the glass</h2><div class="drams"><div class="dram"><span class="abv">40%</span><h3>Journey</h3><span class="cask">Bourbon casks, lightly peated</span><p>Fresh, nutty and easy.</p></div><div class="dram"><span class="abv">40%</span><h3>10 Year Old</h3><span class="cask">Bourbon, finished in sherry</span><p>Chocolate, orange and spice.</p></div><div class="dram"><span class="abv">40%</span><h3>12 Year Old</h3><span class="cask">Bourbon and oloroso sherry</span><p>Rich, citrussy and smooth.</p></div><div class="dram"><span class="abv">44%</span><h3>18 Year Old</h3><span class="cask">Bourbon and red wine casks</span><p>Dark fruit, coffee and mature oak.</p></div></div>
+<p class="credits">Core range as of 2026. Bottlings, strengths and what's open at the bar can change by 2027.</p></section>
+<section class="sec"><div class="eyebrow">Dealbhan · Pictures</div><h2>The place</h2><div class="gallery"><figure><img src="img/ph-jura-1.jpg" alt="Jura, photograph 2" loading="lazy"></figure><figure><img src="img/ph-jura-3.jpg" alt="Jura, photograph 3" loading="lazy"></figure></div></section>
+<section class="sec"><div class="eyebrow">Tadhal · Visiting</div><h2>On the day</h2><div class="visit">
+<div><h3>Opening</h3><p>Mon to Fri, 10:00 to 16:00. Closed at weekends. Hours shown are from 2026, so check before booking.</p></div>
+<div><h3>Book</h3><p>Tours and tastings sell out in summer. Book on the <a href="https://www.jurawhisky.com/" target="_blank" rel="noopener">official website</a>.</p></div>
+<div><h3>Find it</h3><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Jura%20Distillery%2C%20Isle%20of%20Jura" target="_blank" rel="noopener">Open in Google Maps</a>. On our plan for Day 6, A free day around Port Ellen.</p></div></div></section>
+
+<section class="sec" id="our-tour"><div class="eyebrow">Ma thèid sinn · If we go</div><h2>Classic Distillery Tour</h2>
+<div class="tourpick">
+  <div class="tp-main">
+    <div class="tp-facts"><div><small>When</small><b>Thu 1 July, 10:30</b></div><div><small>Length</small><b>1 hour</b></div><div><small>Price</small><b>£15 each</b></div><div><small>In rand</small><b>about R300</b></div></div>
+    <p class="tp-lede">A small, informal tour of the only distillery on Jura, in the village of Craighouse at the foot of the Paps. It's as much about the island day out as the whisky.</p>
+    <ul class="hlist"><li><b>The tall stills.</b> Jura's four stills stand over 25 feet high, among the tallest in Scotland, which is what makes the spirit so light.</li><li><b>Small groups.</b> No more than ten people on a tour.</li><li><b>Two drams</b> at the end, and a Jura glass to take home.</li><li><b>The shop</b> sells bottlings you can only buy at the distillery.</li></ul>
+    <p class="hnote">Jura is open Monday to Friday, 10:00 to 16:00, and closed at weekends, so Thursday works. Tours usually run at 10:30 and 14:00. You can cancel or move a booking up to 48 hours before; after that there are no refunds unless the weather stops the ferry. Book early, because there are only a few tours a day.</p>
+    <a class="btn" href="https://jurawhisky.com/en-gb/distillery/our-tours/" target="_blank" rel="noopener">Book on jurawhisky.com &rarr;</a>
+  </div>
+  <div class="tp-side">
+    <div class="score"><b>£15</b><span>Classic Distillery Tour</span></div><div class="score"><b>10</b><span>people at most on each tour</span></div>
+    <h3>What visitors say</h3><ul class="hlist"><li>Intimate tours with a guide who takes time over the detail.</li><li>One reviewer found the standard tour quick and informal, "but still special. Jura is just that sort of place".</li></ul>
+    <h3>Worth knowing</h3><ul class="hlist"><li>I couldn't find a reliable review score for the distillery, so there's no rating here.</li><li>Getting there takes the whole morning. Allow a full day.</li><li>If the weather turns, the little ferry can stop running.</li></ul>
+  </div>
+</div>
+<h3 class="sub-h">Optional upgrades</h3><p class="hnote" style="margin-bottom:12px">Not in our budget. More expensive options if anyone wants to treat themselves (2026 prices).</p><div class="tablewrap"><table class="opts"><thead><tr><th>Experience</th><th>Price</th><th>Length</th><th>What you get</th></tr></thead><tbody><tr><th scope="row">Warehouse No.1 Experience</th><td class="num">£50</td><td>1 hour</td><td>Single-cask samples drawn in Warehouse No.1, no production tour. 18+. No dates showing at the moment.</td></tr></tbody></table></div>
+</section><section class="sec"><div class="eyebrow">An t-slighe · Getting there</div><h2>A day trip to Jura</h2>
+<div class="fr-text" style="max-width:760px"><p class="tp-lede">Jura is just across the Sound from Port Askaig, but Craighouse is on the far side of the island, so it takes a little planning. If we swap the Oa for Jura, the day would look like this:</p>
+<ol class="hlist">
+<li><b>08:45 · Taxi to Port Askaig.</b> About 35 minutes from the house. Bus 451 also runs, but isn't always timed to the ferry.</li>
+<li><b>About 09:30 · The Jura ferry to Feolin.</b> A small council ferry, roughly 10 minutes across. No booking: just be at the slipway 5 minutes before it sails, and pay the deckhand.</li>
+<li><b>Feolin to Craighouse.</b> About 8 miles on Jura's single road. Take bus 456 (Garelochhead Coaches) or pre-book a local minibus, such as Spirit of Jura Tours (07736 311 275).</li>
+<li><b>10:30 · Classic Distillery Tour.</b> One hour.</li>
+<li><b>Lunch at the Jura Hotel</b>, right across the road from the distillery, then a wander along the bay at Craighouse.</li>
+<li><b>Afternoon · back the same way</b>, with dinner at the house.</li>
+</ol>
+<p>Check the ferry and bus timetables nearer the time. They change twice a year and the 2027 ones aren't out yet.</p></div></section><section class="sec"><div class="eyebrow">Barrachd dhealbhan · More pictures</div><h2>Around Jura</h2><div class="pegal"><figure class="wide"><img src="img/jux-1.jpg" alt="Lobster pots on the shore at Craighouse" loading="lazy"><figcaption>Lobster pots on the shore at Craighouse</figcaption></figure><figure class=""><img src="img/jux-2.jpg" alt="The tall copper stills" loading="lazy"><figcaption>The tall copper stills</figcaption></figure><figure class=""><img src="img/jux-3.jpg" alt="One of the stills up close" loading="lazy"><figcaption>One of the stills up close</figcaption></figure><figure class=""><img src="img/jux-4.jpg" alt="Washbacks in the tun room" loading="lazy"><figcaption>Washbacks in the tun room</figcaption></figure><figure class=""><img src="img/jux-5.jpg" alt="Casks outside the warehouse" loading="lazy"><figcaption>Casks outside the warehouse</figcaption></figure><figure class=""><img src="img/jux-6.jpg" alt="Jura Distillery on the main road" loading="lazy"><figcaption>Jura Distillery on the main road</figcaption></figure><figure class=""><img src="img/jux-7.jpg" alt="The Jura railing" loading="lazy"><figcaption>The Jura railing</figcaption></figure><figure class=""><img src="img/jux-8.jpg" alt="The distillery and Craighouse" loading="lazy"><figcaption>The distillery and Craighouse</figcaption></figure></div><p class="credits">More photographs from Wikimedia Commons: Andrew Abbott, <a href="https://commons.wikimedia.org/wiki/File:Crab_and_lobster_pots_-_geograph.org.uk_-_6135319.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; sebastian.b., <a href="https://commons.wikimedia.org/wiki/File:Jura_Distillery_(9860534364).jpg" target="_blank" rel="noopener">CC BY 2.0</a>; sebastian.b., <a href="https://commons.wikimedia.org/wiki/File:Jura_Distillery_(9860550784).jpg" target="_blank" rel="noopener">CC BY 2.0</a>; sebastian.b., <a href="https://commons.wikimedia.org/wiki/File:Jura_Distillery_(9860556855).jpg" target="_blank" rel="noopener">CC BY 2.0</a>; Bjarne Henning Kvaale, <a href="https://commons.wikimedia.org/wiki/File:Jura_Distillery_casks_at_warehouse_-_panoramio_(1).jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; Bjarne Henning Kvaale, <a href="https://commons.wikimedia.org/wiki/File:Jura_Distillery_-_panoramio_(2).jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; Bjarne Henning Kvaale, <a href="https://commons.wikimedia.org/wiki/File:Jura_Distillery_-_panoramio_(1).jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; Andrew Abbott, <a href="https://commons.wikimedia.org/wiki/File:Jura_Distillery_-_geograph.org.uk_-_6135315.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>.</p></section>
+<div class="nextup"><a href="d-ardnahoe.html"><small>Previous</small><b>Ardnahoe</b></a><a href="d-laphroaig.html"><small>Next</small><b>Laphroaig</b></a></div>
+<p class="credits">Photographs from Wikimedia Commons. Hero: James T M Towill, <a href="https://commons.wikimedia.org/wiki/File:The_Jura_Hotel_and_Jura_Distillery_-_geograph.org.uk_-_5848899.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Photo 2: thejackrustles, <a href="https://commons.wikimedia.org/wiki/File:Jura_Distillery,_Craighouse_-_geograph.org.uk_-_7623333.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Photo 3: M J Richardson, <a href="https://commons.wikimedia.org/wiki/File:Craighouse_from_Jura_Pier_-_geograph.org.uk_-_3998743.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>. This is a private trip guide and is not affiliated with Jura.</p>
+</main>
+<footer class="site"><div class="wrap"><p class="sign">Slàinte mhath.</p><p><a href="index.html">Back to the Islay week</a></p></div></footer>
+<script>if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));</script>
+</body></html>

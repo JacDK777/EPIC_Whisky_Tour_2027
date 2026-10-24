@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#13243A"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Islay 40"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bruichladdich</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root{--accent:#1C7A80;--accent-d:#76D0D4;--accent-soft:color-mix(in srgb,#1C7A80 12%,transparent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--accent:#76D0D4;--accent-soft:color-mix(in srgb,#76D0D4 16%,transparent)}}
+:root[data-theme="dark"]{--accent:#76D0D4;--accent-soft:color-mix(in srgb,#76D0D4 16%,transparent)}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+.tourpick{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}
+.tp-main,.tp-side{background:var(--surface);border:1px solid var(--line);padding:22px;display:grid;gap:12px}
+.tp-main{border-top:4px solid var(--accent)}
+.tp-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tp-facts div,.plotcard div{display:grid;gap:2px}
+.tp-facts small,.plotcard small{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tp-facts b,.plotcard b{font-family:var(--display);font-size:21px;font-weight:600}
+.tp-lede{font-family:var(--display);font-size:21px;line-height:1.35}
+.hlist{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--muted)}
+.hlist b{color:var(--ink);font-weight:600}
+.hlist a{color:var(--accent);font-weight:600}
+.hnote{color:var(--muted);border-left:2px solid var(--accent);padding-left:12px;font-size:15px}
+.tp-main .btn{justify-self:start;border-color:var(--accent);color:var(--accent)}
+.tp-main .btn:hover{background:var(--accent);color:var(--surface)}
+.tp-side h3{font-size:21px;margin-top:6px}
+.score{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.score b{font-family:var(--display);font-size:38px;font-weight:600;color:var(--accent);line-height:1}
+.score span{color:var(--muted);font-size:14px}
+.sub-h{font-size:24px;margin:28px 0 10px}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line)}
+.opts{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.opts th,.opts td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.opts thead th{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.opts tbody th{font-family:var(--display);font-size:19px;font-weight:600}
+.opts tr.pick{background:var(--accent-soft)}
+.opts tr.pick th{color:var(--accent)}
+.opts td:last-child{color:var(--muted)}
+.opts td:nth-child(2),.opts td:nth-child(3){white-space:nowrap}
+.friends{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.fr-text{display:grid;gap:14px}
+.fr-text h3{font-size:22px}
+.plotcard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);padding:16px 18px}
+.fr-map{margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.plotmap{width:100%;height:auto;display:block}
+.fr-map figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+.pegal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pegal figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--navy)}
+.pegal figure.wide{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.pegal img{width:100%;height:100%;object-fit:cover}
+.pegal figure:last-child:nth-child(8){grid-column:span 2;aspect-ratio:8/3}
+.pegal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 12px 8px;font-size:13px;color:#fff;background:linear-gradient(transparent,rgba(8,14,20,.75))}
+@media (max-width:760px){.tourpick,.friends{grid-template-columns:1fr}.pegal{grid-template-columns:1fr 1fr}.pegal figure.wide{grid-column:span 2;grid-row:auto;aspect-ratio:3/2}.pegal figure:last-child:nth-child(8){aspect-ratio:3/2}.plotcard{grid-template-columns:1fr}}
+
+.story-first{padding-bottom:0}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 24px;align-items:start}
+.story p{margin:0 0 12px;color:var(--muted);grid-column:1}
+.story p:first-child{font-family:var(--display);font-size:21px;line-height:1.35;color:var(--ink)}
+.story .st-img{grid-column:2;grid-row:1 / span 6;margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.story .st-img img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover}
+.story .st-img figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+@media (max-width:760px){.story{grid-template-columns:1fr}.story .st-img{grid-column:1;grid-row:auto}}
+:root{--m-sea:#D3DEE5;--m-wl:#9DB2C0;--m-land:#EFECE2;--m-coast:#13243A;--m-road:#B9A27A;--m-lake:#C4D4DD;--m-label:#13243A;--m-sealabel:#4C6C84;--m-hill:#7A6A52;--rt-bus:#B47A12;--rt-walk:#13243A;--rt-taxi:#8E3B97;--rt-ferry:#1D6E9E;--rt-flight:#9B2C2C;}@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}}:root[data-theme="dark"]{--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}</style>
+</head><body>
+<div class="topbar"><div class="wrap"><a href="index.html#distilleries">&larr; The Islay week</a><nav><a href="d-bowmore.html">&lsaquo; Bowmore</a><a href="d-caolila.html">Caol Ila &rsaquo;</a></nav></div></div>
+<header class="dhero"><img src="img/ph-bruichladdich-2.jpg" alt="Bruichladdich distillery"><div class="shade"></div>
+<div class="wrap"><div class="eyebrow">Day 4 · Tuesday 29 June 2027</div><h1>Bruichladdich</h1>
+<p class="gd">Bruthach a’ Chladaich <span>· Gaelic for “the brae of the shore” · say brook-LADDIE</span></p></div></header>
+<div class="accentbar"></div>
+<div class="factsband"><div class="wrap facts"><div><small>Founded</small><b class="num">1881</b></div><div><small>On our trip</small><b>Tue 29 June</b></div><div><small>Visitor centre</small><b style="font-size:19px">Daily, 09:45 to 17:30 (Mar to Oct)</b></div><div><small>Peat</small><b>Light</b></div></div></div>
+<main class="wrap">
+<section class="sec story-first"><div class="eyebrow">Seanchas · The story</div><h2>The Progressive Hebridean Distillers</h2><div class="story"><p>Bruichladdich was built in 1881 by the Harvey brothers, on the shore of Loch Indaal. Much of its Victorian kit is still working, including the open-topped cast-iron mash tun from 1881.</p><p>It was mothballed in 1994. In 2000 a group of independent investors led by wine merchant Mark Reynier bought it, legendary Islay distiller Jim McEwan came over from Bowmore to run production, and the stills came back to life in 2001. Rémy Cointreau bought it in 2012.</p><p>Bruichladdich makes three whiskies. The Bruichladdich range is unpeated and built on Scottish barley, some of it grown on Islay farms. Port Charlotte is heavily peated, at around 40 ppm, and is named after the village down the road. Octomore is the extreme one, with some releases peated past 300 ppm.</p><p>It also makes The Botanist gin, flavoured with 22 botanicals hand-foraged on Islay and distilled in a squat old Lomond still nicknamed Ugly Betty.</p><p><b>While you're there:</b> on a fine day, take a dram from the shop to the shore across the road. The view back over Loch Indaal to Bowmore is one of the best on the island.</p><figure class="st-img"><img src="img/brx-9.jpg" alt="A Bruichladdich cask end by the loch" loading="lazy"><figcaption>A Bruichladdich cask end by the loch</figcaption></figure></div></section>
+<section class="intro"><div><div class="eyebrow" style="color:var(--accent)">The distillery</div><p class="lede" style="margin-top:10px">The progressive Hebridean distillery. It works with Scottish barley farms, uses Victorian equipment, and makes three very different whiskies under one roof, plus The Botanist gin.</p><p class="style"><b style="color:var(--ink)">House style.</b> The house style is unpeated: floral, barley-sweet and fruity. Port Charlotte and Octomore are the smoky side.</p></div>
+<div><svg class="radar" viewBox="0 0 440 340" role="img" aria-label="Flavour profile of Bruichladdich: Smoke 1.5 of 5, Maritime 3 of 5, Fruit 4 of 5, Sweetness 3.5 of 5, Spice 2 of 5, Body 3 of 5"><polygon points="220.0,147.0 239.9,158.5 239.9,181.5 220.0,193.0 200.1,181.5 200.1,158.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,124.0 259.8,147.0 259.8,193.0 220.0,216.0 180.2,193.0 180.2,147.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,101.0 279.8,135.5 279.8,204.5 220.0,239.0 160.2,204.5 160.2,135.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,78.0 299.7,124.0 299.7,216.0 220.0,262.0 140.3,216.0 140.3,124.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,55.0 319.6,112.5 319.6,227.5 220.0,285.0 120.4,227.5 120.4,112.5" fill="none" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="55.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="112.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="285.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="112.5" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,135.5 279.8,135.5 299.7,216.0 220.0,250.5 180.2,193.0 160.2,135.5" fill="var(--accent)" fill-opacity=".22" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="220.0" cy="135.5" r="4" fill="var(--accent)"/><text x="220.0" y="29.0" text-anchor="middle" dominant-baseline="central">SMOKE<tspan class="val" dx="6">1.5</tspan></text><circle cx="279.8" cy="135.5" r="4" fill="var(--accent)"/><text x="342.1" y="99.5" text-anchor="start" dominant-baseline="central">MARITIME<tspan class="val" dx="6">3</tspan></text><circle cx="299.7" cy="216.0" r="4" fill="var(--accent)"/><text x="342.1" y="240.5" text-anchor="start" dominant-baseline="central">FRUIT<tspan class="val" dx="6">4</tspan></text><circle cx="220.0" cy="250.5" r="4" fill="var(--accent)"/><text x="220.0" y="311.0" text-anchor="middle" dominant-baseline="central">SWEETNESS<tspan class="val" dx="6">3.5</tspan></text><circle cx="180.2" cy="193.0" r="4" fill="var(--accent)"/><text x="97.9" y="240.5" text-anchor="end" dominant-baseline="central">SPICE<tspan class="val" dx="6">2</tspan></text><circle cx="160.2" cy="135.5" r="4" fill="var(--accent)"/><text x="97.9" y="99.5" text-anchor="end" dominant-baseline="central">BODY<tspan class="val" dx="6">3</tspan></text></svg><p class="radar-cap">Average flavour profile across the core range, scored 0 to 5. Our own tasting estimate.</p></div></section>
+<section class="sec"><div class="eyebrow">Blasad · What to taste</div><h2>In the glass</h2><div class="drams"><div class="dram"><span class="abv">50%</span><h3>The Classic Laddie</h3><span class="cask">Unpeated, mixed American oak</span><p>Barley sugar, wildflowers and sea air.</p></div><div class="dram"><span class="abv">50%</span><h3>Islay Barley</h3><span class="cask">Barley grown on Islay farms</span><p>Grassy, malty and mineral.</p></div><div class="dram"><span class="abv">50%</span><h3>Port Charlotte 10</h3><span class="cask">Heavily peated</span><p>Big earthy smoke with a buttery richness.</p></div><div class="dram"><span class="abv">About 59%</span><h3>Octomore</h3><span class="cask">The most heavily peated whisky made</span><p>Ferocious peat, then oddly sweet and creamy.</p></div></div>
+<p class="credits">Core range as of 2026. Bottlings, strengths and what's open at the bar can change by 2027.</p></section>
+<section class="sec"><div class="eyebrow">Dealbhan · Pictures</div><h2>The place</h2><div class="gallery"><figure><img src="img/ph-bruichladdich-1.jpg" alt="Bruichladdich, photograph 2" loading="lazy"></figure><figure><img src="img/ph-bruichladdich-3.jpg" alt="Bruichladdich, photograph 3" loading="lazy"></figure></div></section>
+<section class="sec"><div class="eyebrow">Tadhal · Visiting</div><h2>On the day</h2><div class="visit">
+<div><h3>Opening</h3><p>Daily, 09:45 to 17:30 (Mar to Oct). Open every day in summer. Hours shown are from 2026, so check before booking.</p></div>
+<div><h3>Book</h3><p>Tours and tastings sell out in summer. Book on the <a href="https://www.bruichladdich.com/" target="_blank" rel="noopener">official website</a>.</p></div>
+<div><h3>Find it</h3><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Bruichladdich%20Distillery%2C%20Isle%20of%20Islay" target="_blank" rel="noopener">Open in Google Maps</a>. On our plan for Day 4, Round Loch Indaal.</p></div></div></section>
+
+<section class="sec" id="our-tour"><div class="eyebrow">Ar turas · Our tour</div><h2>Warehouse Tasting</h2>
+<div class="tourpick">
+  <div class="tp-main">
+    <div class="tp-facts"><div><small>When</small><b>Tue 29 June, 14:00</b></div><div><small>Length</small><b>1½ hours</b></div><div><small>Price</small><b>£40 each</b></div><div><small>In rand</small><b>about R900</b></div></div>
+    <p class="tp-lede">The tasting reviewers keep recommending. You sit among the casks in the warehouse and taste whisky drawn straight from the barrel, with a host who knows every one of them.</p>
+    <ul class="hlist"><li><b>Straight from the cask.</b> The drams are drawn with a valinch, the long copper pipe used to sample a cask. One visitor's line-up was a 26-year-old Bruichladdich, a Port Charlotte from a Bordeaux wine cask and a Sauternes-finished Octomore.</li><li><b>All three styles under one roof:</b> unpeated Bruichladdich, heavily peated Port Charlotte, and Octomore, the most heavily peated whisky in the world.</li><li><b>The shop afterwards</b> sells Octomore and Port Charlotte releases you can't buy online. It has often had a distillery-only bottle you fill yourself from a cask, so ask.</li><li><b>Drivers</b> get samples to take away.</li></ul>
+    <p class="hnote">18 and over only. Book two or three weeks ahead for summer, and you can cancel for a full refund up to 24 hours before. There's no café or restaurant, so eat in Bowmore before the bus. Open every day from March to October, 09:45 to 17:30. The bus home leaves at about 16:40, so we finish with time for the shop.</p>
+    <a class="btn" href="https://uk.bruichladdich.com/pages/tours" target="_blank" rel="noopener">Book on bruichladdich.com &rarr;</a>
+  </div>
+  <div class="tp-side">
+    <div class="score"><b>4.8</b><span>Tripadvisor · 1,308 reviews</span></div><div class="score"><b>4.8</b><span>Google · 403 reviews</span></div>
+    <h3>What visitors say</h3><ul class="hlist"><li>Knowledgeable, friendly guides with good stories. Katrina and Eva get named.</li><li>Warehouse tastings straight from the cask, with hosts who love what they do.</li><li>A homely, down-to-earth feel compared with the bigger names.</li><li>A good spread, from unpeated whisky to The Botanist gin.</li></ul>
+    <h3>Worth knowing</h3><ul class="hlist"><li>No café or restaurant on site. Picnic spots along Loch Indaal are the alternative.</li><li>No flash photography in the distillery.</li><li>The warehouses are cool, so bring a layer.</li></ul>
+  </div>
+</div>
+<h3 class="sub-h">Optional upgrades</h3><p class="hnote" style="margin-bottom:12px">Not in our budget. More expensive options if anyone wants to treat themselves (2026 prices).</p><div class="tablewrap"><table class="opts"><thead><tr><th>Experience</th><th>Price</th><th>Length</th><th>What you get</th></tr></thead><tbody><tr><th scope="row">Bruichladdich Experience</th><td class="num">£55</td><td>2½ hours</td><td>A behind-the-scenes production tour and tasting. Too tight for our bus home.</td></tr></tbody></table></div>
+</section><section class="sec"><div class="eyebrow">Barrachd dhealbhan · More pictures</div><h2>Around Bruichladdich</h2><div class="pegal"><figure class="wide"><img src="img/brx-1.jpg" alt="Bruichladdich across the water" loading="lazy"><figcaption>Bruichladdich across the water</figcaption></figure><figure class=""><img src="img/brx-2.jpg" alt="Inside the still house" loading="lazy"><figcaption>Inside the still house</figcaption></figure><figure class=""><img src="img/brx-3.jpg" alt="A tall pot still" loading="lazy"><figcaption>A tall pot still</figcaption></figure><figure class=""><img src="img/brx-4.jpg" alt="Casks racked in the warehouse" loading="lazy"><figcaption>Casks racked in the warehouse</figcaption></figure><figure class=""><img src="img/brx-5.jpg" alt="The rakes of the Victorian mash tun" loading="lazy"><figcaption>The rakes of the Victorian mash tun</figcaption></figure><figure class=""><img src="img/brx-6.jpg" alt="Victorian machinery, still in use" loading="lazy"><figcaption>Victorian machinery, still in use</figcaption></figure><figure class=""><img src="img/brx-7.jpg" alt="Rolling a cask through the gates" loading="lazy"><figcaption>Rolling a cask through the gates</figcaption></figure><figure class=""><img src="img/brx-8.jpg" alt="Progressive Hebridean Distillers, since 1881" loading="lazy"><figcaption>Progressive Hebridean Distillers, since 1881</figcaption></figure></div><p class="credits">More photographs from Wikimedia Commons: Bdcl1881, <a href="https://commons.wikimedia.org/wiki/File:Distillery-view.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; sebastian.b., <a href="https://commons.wikimedia.org/wiki/File:Bruichladdich_(9860601295).jpg" target="_blank" rel="noopener">CC BY 2.0</a>; Stephane Farenga, <a href="https://commons.wikimedia.org/wiki/File:Bruichladdich_potstill.jpg" target="_blank" rel="noopener">CC BY 2.0</a>; sebastian.b., <a href="https://commons.wikimedia.org/wiki/File:Bruichladdich_(9860629726).jpg" target="_blank" rel="noopener">CC BY 2.0</a>; Michael McKechnie, <a href="https://commons.wikimedia.org/wiki/File:20110705-2011-07-05_Scotland_005.jpg" target="_blank" rel="noopener">CC BY 2.0</a>; sebastian.b., <a href="https://commons.wikimedia.org/wiki/File:Bruichladdich_(9860604936).jpg" target="_blank" rel="noopener">CC BY 2.0</a>; Bdcl1881, <a href="https://commons.wikimedia.org/wiki/File:Distillery-gates.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; MSeses, <a href="https://commons.wikimedia.org/wiki/File:Scotland_Argyll_Bute_Islay_Bruichladdich_Distillery.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p></section>
+<div class="nextup"><a href="d-bowmore.html"><small>Previous</small><b>Bowmore</b></a><a href="d-caolila.html"><small>Next</small><b>Caol Ila</b></a></div>
+<p class="credits">Photographs from Wikimedia Commons. Hero: Trevor Littlewood, <a href="https://commons.wikimedia.org/wiki/File:Bruichladdich_Distillery_-_geograph.org.uk_-_5179934.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Photo 2: Euan Nelson, <a href="https://commons.wikimedia.org/wiki/File:Bruichladdich_Distillery_-_geograph.org.uk_-_2328926.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Photo 3: The Crabbit Photographer, <a href="https://commons.wikimedia.org/wiki/File:Bruichladdich_chimney.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a>. This is a private trip guide and is not affiliated with Bruichladdich.</p>
+</main>
+<footer class="site"><div class="wrap"><p class="sign">Slàinte mhath.</p><p><a href="index.html">Back to the Islay week</a></p></div></footer>
+<script>if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));</script>
+</body></html>

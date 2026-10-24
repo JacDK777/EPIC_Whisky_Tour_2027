@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#13243A"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Islay 40"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lagavulin</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root{--accent:#8A4E16;--accent-d:#E5A86A;--accent-soft:color-mix(in srgb,#8A4E16 12%,transparent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--accent:#E5A86A;--accent-soft:color-mix(in srgb,#E5A86A 16%,transparent)}}
+:root[data-theme="dark"]{--accent:#E5A86A;--accent-soft:color-mix(in srgb,#E5A86A 16%,transparent)}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+.tourpick{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}
+.tp-main,.tp-side{background:var(--surface);border:1px solid var(--line);padding:22px;display:grid;gap:12px}
+.tp-main{border-top:4px solid var(--accent)}
+.tp-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tp-facts div,.plotcard div{display:grid;gap:2px}
+.tp-facts small,.plotcard small{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tp-facts b,.plotcard b{font-family:var(--display);font-size:21px;font-weight:600}
+.tp-lede{font-family:var(--display);font-size:21px;line-height:1.35}
+.hlist{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--muted)}
+.hlist b{color:var(--ink);font-weight:600}
+.hlist a{color:var(--accent);font-weight:600}
+.hnote{color:var(--muted);border-left:2px solid var(--accent);padding-left:12px;font-size:15px}
+.tp-main .btn{justify-self:start;border-color:var(--accent);color:var(--accent)}
+.tp-main .btn:hover{background:var(--accent);color:var(--surface)}
+.tp-side h3{font-size:21px;margin-top:6px}
+.score{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.score b{font-family:var(--display);font-size:38px;font-weight:600;color:var(--accent);line-height:1}
+.score span{color:var(--muted);font-size:14px}
+.sub-h{font-size:24px;margin:28px 0 10px}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line)}
+.opts{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.opts th,.opts td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.opts thead th{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.opts tbody th{font-family:var(--display);font-size:19px;font-weight:600}
+.opts tr.pick{background:var(--accent-soft)}
+.opts tr.pick th{color:var(--accent)}
+.opts td:last-child{color:var(--muted)}
+.opts td:nth-child(2),.opts td:nth-child(3){white-space:nowrap}
+.friends{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.fr-text{display:grid;gap:14px}
+.fr-text h3{font-size:22px}
+.plotcard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);padding:16px 18px}
+.fr-map{margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.plotmap{width:100%;height:auto;display:block}
+.fr-map figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+.pegal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pegal figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--navy)}
+.pegal figure.wide{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.pegal img{width:100%;height:100%;object-fit:cover}
+.pegal figure:last-child:nth-child(8){grid-column:span 2;aspect-ratio:8/3}
+.pegal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 12px 8px;font-size:13px;color:#fff;background:linear-gradient(transparent,rgba(8,14,20,.75))}
+@media (max-width:760px){.tourpick,.friends{grid-template-columns:1fr}.pegal{grid-template-columns:1fr 1fr}.pegal figure.wide{grid-column:span 2;grid-row:auto;aspect-ratio:3/2}.pegal figure:last-child:nth-child(8){aspect-ratio:3/2}.plotcard{grid-template-columns:1fr}}
+
+.story-first{padding-bottom:0}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 24px;align-items:start}
+.story p{margin:0 0 12px;color:var(--muted);grid-column:1}
+.story p:first-child{font-family:var(--display);font-size:21px;line-height:1.35;color:var(--ink)}
+.story .st-img{grid-column:2;grid-row:1 / span 6;margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.story .st-img img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover}
+.story .st-img figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+@media (max-width:760px){.story{grid-template-columns:1fr}.story .st-img{grid-column:1;grid-row:auto}}
+:root{--m-sea:#D3DEE5;--m-wl:#9DB2C0;--m-land:#EFECE2;--m-coast:#13243A;--m-road:#B9A27A;--m-lake:#C4D4DD;--m-label:#13243A;--m-sealabel:#4C6C84;--m-hill:#7A6A52;--rt-bus:#B47A12;--rt-walk:#13243A;--rt-taxi:#8E3B97;--rt-ferry:#1D6E9E;--rt-flight:#9B2C2C;}@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}}:root[data-theme="dark"]{--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}</style>
+</head><body>
+<div class="topbar"><div class="wrap"><a href="index.html#distilleries">&larr; The Islay week</a><nav><a href="d-laphroaig.html">&lsaquo; Laphroaig</a><a href="d-ardbeg.html">Ardbeg &rsaquo;</a></nav></div></div>
+<header class="dhero"><img src="img/ph-lagavulin-1.jpg" alt="Lagavulin distillery"><div class="shade"></div>
+<div class="wrap"><div class="eyebrow">Day 3 · Monday 28 June 2027</div><h1>Lagavulin</h1>
+<p class="gd">Lag a’ Mhuilinn <span>· Gaelic for “hollow of the mill” · say lagga-VOO-lin</span></p></div></header>
+<div class="accentbar"></div>
+<div class="factsband"><div class="wrap facts"><div><small>Founded</small><b class="num">1816</b></div><div><small>On our trip</small><b>Mon 28 June</b></div><div><small>Visitor centre</small><b style="font-size:19px">Daily, 10:00 to 17:00</b></div><div><small>Peat</small><b>Smoky</b></div></div></div>
+<main class="wrap">
+<section class="sec story-first"><div class="eyebrow">Seanchas · The story</div><h2>Below the castle of the Lords of the Isles</h2><div class="story"><p>Lagavulin Bay was the naval harbour of the MacDonald Lords of the Isles, guarded by Dunyvaig Castle on the rocks at its mouth. The castle was besieged and taken four times in the 1600s and pulled down by the Campbells in 1677.</p><p>Smugglers were making whisky in bothies round the bay as early as the 1740s. John Johnston founded the legal distillery in 1816, and by 1837 two neighbouring distilleries had been merged into the one you see today. White Horse owned it by the 1920s, and it is now part of Diageo.</p><p>Lagavulin stopped malting its own barley in 1974. The malt now comes from the big Port Ellen maltings, the building you'll walk past on the way home to the house.</p><p><b>Don't miss:</b> walk out on the headland east of the bay to the castle ruins. It's the classic view back across the water to the distillery, and only a few minutes from the visitor centre.</p><figure class="st-img"><img src="img/lgx-7.jpg" alt="Dunyvaig Castle at the mouth of Lagavulin Bay" loading="lazy"><figcaption>Dunyvaig Castle at the mouth of Lagavulin Bay</figcaption></figure></div></section>
+<section class="intro"><div><div class="eyebrow" style="color:var(--accent)">The distillery</div><p class="lede" style="margin-top:10px">Set round a small bay below the ruins of Dunyvaig Castle, once a stronghold of the Lords of the Isles. Lagavulin&#x27;s slow distillation gives a famously rich, round spirit.</p><p class="style"><b style="color:var(--ink)">House style.</b> Deep, rounded smoke with dried fruit, sherry sweetness and a long, warming finish.</p></div>
+<div><svg class="radar" viewBox="0 0 440 340" role="img" aria-label="Flavour profile of Lagavulin: Smoke 4 of 5, Maritime 3 of 5, Fruit 3 of 5, Sweetness 3.5 of 5, Spice 2.5 of 5, Body 4.5 of 5"><polygon points="220.0,147.0 239.9,158.5 239.9,181.5 220.0,193.0 200.1,181.5 200.1,158.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,124.0 259.8,147.0 259.8,193.0 220.0,216.0 180.2,193.0 180.2,147.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,101.0 279.8,135.5 279.8,204.5 220.0,239.0 160.2,204.5 160.2,135.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,78.0 299.7,124.0 299.7,216.0 220.0,262.0 140.3,216.0 140.3,124.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,55.0 319.6,112.5 319.6,227.5 220.0,285.0 120.4,227.5 120.4,112.5" fill="none" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="55.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="112.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="285.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="112.5" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,78.0 279.8,135.5 279.8,204.5 220.0,250.5 170.2,198.8 130.4,118.2" fill="var(--accent)" fill-opacity=".22" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="220.0" cy="78.0" r="4" fill="var(--accent)"/><text x="220.0" y="29.0" text-anchor="middle" dominant-baseline="central">SMOKE<tspan class="val" dx="6">4</tspan></text><circle cx="279.8" cy="135.5" r="4" fill="var(--accent)"/><text x="342.1" y="99.5" text-anchor="start" dominant-baseline="central">MARITIME<tspan class="val" dx="6">3</tspan></text><circle cx="279.8" cy="204.5" r="4" fill="var(--accent)"/><text x="342.1" y="240.5" text-anchor="start" dominant-baseline="central">FRUIT<tspan class="val" dx="6">3</tspan></text><circle cx="220.0" cy="250.5" r="4" fill="var(--accent)"/><text x="220.0" y="311.0" text-anchor="middle" dominant-baseline="central">SWEETNESS<tspan class="val" dx="6">3.5</tspan></text><circle cx="170.2" cy="198.8" r="4" fill="var(--accent)"/><text x="97.9" y="240.5" text-anchor="end" dominant-baseline="central">SPICE<tspan class="val" dx="6">2.5</tspan></text><circle cx="130.4" cy="118.2" r="4" fill="var(--accent)"/><text x="97.9" y="99.5" text-anchor="end" dominant-baseline="central">BODY<tspan class="val" dx="6">4.5</tspan></text></svg><p class="radar-cap">Average flavour profile across the core range, scored 0 to 5. Our own tasting estimate.</p></div></section>
+<section class="sec"><div class="eyebrow">Blasad · What to taste</div><h2>In the glass</h2><div class="drams"><div class="dram"><span class="abv">48%</span><h3>8 Year Old</h3><span class="cask">Refill casks</span><p>Brighter and sharper. Fresh smoke, citrus and salt.</p></div><div class="dram"><span class="abv">43%</span><h3>16 Year Old</h3><span class="cask">Long ageing, some sherry</span><p>The classic. Lapsang tea, raisins and a long, dry finish.</p></div><div class="dram"><span class="abv">43%</span><h3>Distillers Edition</h3><span class="cask">Finished in Pedro Ximénez sherry casks</span><p>Sweeter and plummy, with the smoke still in charge.</p></div><div class="dram"><span class="abv">About 56%</span><h3>12 Year Old Special Release</h3><span class="cask">Refill casks, cask strength</span><p>Pale but powerful. Lemon, wet stone and smoke.</p></div></div>
+<p class="credits">Core range as of 2026. Bottlings, strengths and what's open at the bar can change by 2027.</p></section>
+<section class="sec"><div class="eyebrow">Dealbhan · Pictures</div><h2>The place</h2><div class="gallery"><figure><img src="img/ph-lagavulin-3.jpg" alt="Lagavulin, photograph 2" loading="lazy"></figure><figure><img src="img/ph-lagavulin-4.jpg" alt="Lagavulin, photograph 3" loading="lazy"></figure></div></section>
+<section class="sec"><div class="eyebrow">Tadhal · Visiting</div><h2>On the day</h2><div class="visit">
+<div><h3>Opening</h3><p>Daily, 10:00 to 17:00. Open every day. Hours shown are from 2026, so check before booking.</p></div>
+<div><h3>Book</h3><p>Tours and tastings sell out in summer. Book on the <a href="https://www.malts.com/en-gb/distilleries/lagavulin" target="_blank" rel="noopener">official website</a>.</p></div>
+<div><h3>Find it</h3><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Lagavulin%20Distillery%2C%20Isle%20of%20Islay" target="_blank" rel="noopener">Open in Google Maps</a>. On our plan for Day 3, Lagavulin and Ardbeg.</p></div></div></section>
+
+<section class="sec" id="our-tour"><div class="eyebrow">Ar turas · Our tour</div><h2>Distillery Exclusive Experience</h2>
+<div class="tourpick">
+  <div class="tp-main">
+    <div class="tp-facts"><div><small>When</small><b>Mon 28 June, 10:30</b></div><div><small>Length</small><b>2 hours</b></div><div><small>Price</small><b>£130 each</b></div><div><small>In rand</small><b>about R2,900</b></div></div>
+    <p class="tp-lede">Lagavulin's top visit, and a fitting one for a 40th. You see how the spirit is made, then sit down in the Mackie Lounge for a tutored tasting and leave with a bottle you filled yourself.</p>
+    <ul class="hlist"><li><b>Production tour</b> through the mash house and the still house, with its pear-shaped spirit stills that make Lagavulin so rich.</li><li><b>New make spirit.</b> Taste the clear spirit straight off the still, before any cask has touched it.</li><li><b>Premium tasting</b> in the Mackie Lounge: four Lagavulin bottlings and a single cask sample.</li><li><b>Fill your own bottle.</b> Hand-fill a 20 cl bottle of that single cask whisky to take home.</li></ul>
+    <p class="hnote">Up to 12 people per booking, 18+ only, and arrive 15 minutes early. The drams can change with what's available. If you're driving, ask for your drams to take away. Lagavulin is open every day in summer from 10:00 to 17:00.</p>
+    <a class="btn" href="https://www.malts.com/en-gb/experiences/lagavulin-distillery-exclusive-experience" target="_blank" rel="noopener">Book on malts.com &rarr;</a>
+  </div>
+  <div class="tp-side">
+    <div class="score"><b>4.6</b><span>Tripadvisor · 1,114 reviews</span></div><div class="score"><b>#4</b><span>of 42 things to do on Islay</span></div>
+    <h3>What visitors say</h3><ul class="hlist"><li>Guides who tell a good story. Many reviewers name theirs and say the stories made the visit.</li><li>The tastings, with well-paced explanations and a good spread of whiskies.</li><li>The setting on the bay, with views to Dunyvaig Castle.</li><li>Filling your own bottle is a favourite.</li></ul>
+    <h3>Worth knowing</h3><ul class="hlist"><li>One reviewer found the cheaper Warehouse No3 Experience scripted for four drams. That's one reason we've gone for the Exclusive.</li><li>Photos are restricted in parts of the distillery.</li><li>The tour has stairs and is not suitable for restricted mobility.</li><li>There's a bar (the Dramming Room, 10:30 to 16:00) but no café, so eat at Ardbeg afterwards.</li></ul>
+  </div>
+</div>
+<p class="hnote" style="margin-top:22px">This is the top experience here, so there are no upgrades to consider.</p>
+</section><section class="sec"><div class="eyebrow">Barrachd dhealbhan · More pictures</div><h2>Around Lagavulin</h2><div class="pegal"><figure class="wide"><img src="img/lgx-1.jpg" alt="Lagavulin across its bay" loading="lazy"><figcaption>Lagavulin across its bay</figcaption></figure><figure class=""><img src="img/lgx-4.jpg" alt="The stills" loading="lazy"><figcaption>The stills</figcaption></figure><figure class=""><img src="img/lgx-5.jpg" alt="Wooden washbacks in the tun room" loading="lazy"><figcaption>Wooden washbacks in the tun room</figcaption></figure><figure class=""><img src="img/lgx-2.jpg" alt="Casks in the warehouse" loading="lazy"><figcaption>Casks in the warehouse</figcaption></figure><figure class=""><img src="img/lgx-3.jpg" alt="Glasses lined up for a tasting" loading="lazy"><figcaption>Glasses lined up for a tasting</figcaption></figure><figure class=""><img src="img/lgx-8.jpg" alt="The distillery from the air" loading="lazy"><figcaption>The distillery from the air</figcaption></figure><figure class=""><img src="img/lgx-9.jpg" alt="A cask planter by the door" loading="lazy"><figcaption>A cask planter by the door</figcaption></figure><figure class=""><img src="img/lgx-6.jpg" alt="The famous white walls" loading="lazy"><figcaption>The famous white walls</figcaption></figure></div><p class="credits">More photographs from Wikimedia Commons: Charlie Marshall, <a href="https://commons.wikimedia.org/wiki/File:2019-05-05_Lagavulin_Distillery.jpg" target="_blank" rel="noopener">CC BY 2.0</a>; Ashley Coates, <a href="https://commons.wikimedia.org/wiki/File:Stills_at_Lagavulin_Distillery,_Islay.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; sebastian.b., <a href="https://commons.wikimedia.org/wiki/File:Lagavulin_Distillery_(9860880316).jpg" target="_blank" rel="noopener">CC BY 2.0</a>; Martin Cígler, <a href="https://commons.wikimedia.org/wiki/File:Lagavulin_distillery,_Islay_-_panoramio_(1).jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; sebastian.b., <a href="https://commons.wikimedia.org/wiki/File:Lagavulin_Distillery_(9860877265).jpg" target="_blank" rel="noopener">CC BY 2.0</a>; Bjarne Henning Kvaale, <a href="https://commons.wikimedia.org/wiki/File:Lagavulin_from_the_air_-_panoramio.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; sebastian.b., <a href="https://commons.wikimedia.org/wiki/File:Lagavulin_Distillery_(9860944243).jpg" target="_blank" rel="noopener">CC BY 2.0</a>; Martin Cígler, <a href="https://commons.wikimedia.org/wiki/File:Lagavulin_distillery_-_panoramio.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>.</p></section>
+<div class="nextup"><a href="d-laphroaig.html"><small>Previous</small><b>Laphroaig</b></a><a href="d-ardbeg.html"><small>Next</small><b>Ardbeg</b></a></div>
+<p class="credits">Photographs from Wikimedia Commons. Hero: Euan Nelson, <a href="https://commons.wikimedia.org/wiki/File:Lagavulin_Distillery_-_geograph.org.uk_-_2325444.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Photo 2: Euan Nelson, <a href="https://commons.wikimedia.org/wiki/File:Lagavulin_Distillery_-_geograph.org.uk_-_2325463.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Photo 3: Stephane Farenga, <a href="https://commons.wikimedia.org/wiki/File:Lagavulin_warehouse.jpg" target="_blank" rel="noopener">CC BY 2.0</a>. This is a private trip guide and is not affiliated with Lagavulin.</p>
+</main>
+<footer class="site"><div class="wrap"><p class="sign">Slàinte mhath.</p><p><a href="index.html">Back to the Islay week</a></p></div></footer>
+<script>if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));</script>
+</body></html>

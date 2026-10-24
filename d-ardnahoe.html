@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#13243A"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Islay 40"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ardnahoe</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root{--accent:#5C3F72;--accent-d:#BFA0D8;--accent-soft:color-mix(in srgb,#5C3F72 12%,transparent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--accent:#BFA0D8;--accent-soft:color-mix(in srgb,#BFA0D8 16%,transparent)}}
+:root[data-theme="dark"]{--accent:#BFA0D8;--accent-soft:color-mix(in srgb,#BFA0D8 16%,transparent)}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+.tourpick{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}
+.tp-main,.tp-side{background:var(--surface);border:1px solid var(--line);padding:22px;display:grid;gap:12px}
+.tp-main{border-top:4px solid var(--accent)}
+.tp-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tp-facts div,.plotcard div{display:grid;gap:2px}
+.tp-facts small,.plotcard small{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tp-facts b,.plotcard b{font-family:var(--display);font-size:21px;font-weight:600}
+.tp-lede{font-family:var(--display);font-size:21px;line-height:1.35}
+.hlist{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--muted)}
+.hlist b{color:var(--ink);font-weight:600}
+.hlist a{color:var(--accent);font-weight:600}
+.hnote{color:var(--muted);border-left:2px solid var(--accent);padding-left:12px;font-size:15px}
+.tp-main .btn{justify-self:start;border-color:var(--accent);color:var(--accent)}
+.tp-main .btn:hover{background:var(--accent);color:var(--surface)}
+.tp-side h3{font-size:21px;margin-top:6px}
+.score{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.score b{font-family:var(--display);font-size:38px;font-weight:600;color:var(--accent);line-height:1}
+.score span{color:var(--muted);font-size:14px}
+.sub-h{font-size:24px;margin:28px 0 10px}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line)}
+.opts{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.opts th,.opts td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.opts thead th{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.opts tbody th{font-family:var(--display);font-size:19px;font-weight:600}
+.opts tr.pick{background:var(--accent-soft)}
+.opts tr.pick th{color:var(--accent)}
+.opts td:last-child{color:var(--muted)}
+.opts td:nth-child(2),.opts td:nth-child(3){white-space:nowrap}
+.friends{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.fr-text{display:grid;gap:14px}
+.fr-text h3{font-size:22px}
+.plotcard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);padding:16px 18px}
+.fr-map{margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.plotmap{width:100%;height:auto;display:block}
+.fr-map figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+.pegal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pegal figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--navy)}
+.pegal figure.wide{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.pegal img{width:100%;height:100%;object-fit:cover}
+.pegal figure:last-child:nth-child(8){grid-column:span 2;aspect-ratio:8/3}
+.pegal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 12px 8px;font-size:13px;color:#fff;background:linear-gradient(transparent,rgba(8,14,20,.75))}
+@media (max-width:760px){.tourpick,.friends{grid-template-columns:1fr}.pegal{grid-template-columns:1fr 1fr}.pegal figure.wide{grid-column:span 2;grid-row:auto;aspect-ratio:3/2}.pegal figure:last-child:nth-child(8){aspect-ratio:3/2}.plotcard{grid-template-columns:1fr}}
+
+.story-first{padding-bottom:0}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 24px;align-items:start}
+.story p{margin:0 0 12px;color:var(--muted);grid-column:1}
+.story p:first-child{font-family:var(--display);font-size:21px;line-height:1.35;color:var(--ink)}
+.story .st-img{grid-column:2;grid-row:1 / span 6;margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.story .st-img img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover}
+.story .st-img figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+@media (max-width:760px){.story{grid-template-columns:1fr}.story .st-img{grid-column:1;grid-row:auto}}
+:root{--m-sea:#D3DEE5;--m-wl:#9DB2C0;--m-land:#EFECE2;--m-coast:#13243A;--m-road:#B9A27A;--m-lake:#C4D4DD;--m-label:#13243A;--m-sealabel:#4C6C84;--m-hill:#7A6A52;--rt-bus:#B47A12;--rt-walk:#13243A;--rt-taxi:#8E3B97;--rt-ferry:#1D6E9E;--rt-flight:#9B2C2C;}@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}}:root[data-theme="dark"]{--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}</style>
+</head><body>
+<div class="topbar"><div class="wrap"><a href="index.html#distilleries">&larr; The Islay week</a><nav><a href="d-bunnahabhain.html">&lsaquo; Bunnahabhain</a><a href="d-jura.html">Jura &rsaquo;</a></nav></div></div>
+<header class="dhero"><img src="img/ph-ardnahoe-1.jpg" alt="Ardnahoe distillery"><div class="shade"></div>
+<div class="wrap"><div class="eyebrow">Day 5 · Wednesday 30 June 2027</div><h1>Ardnahoe</h1>
+<p class="gd"><span>Named after Ardnahoe Loch, beside the distillery · say ard-na-HOE</span></p></div></header>
+<div class="accentbar"></div>
+<div class="factsband"><div class="wrap facts"><div><small>Founded</small><b class="num">2018</b></div><div><small>On our trip</small><b>Wed 30 June</b></div><div><small>Visitor centre</small><b style="font-size:19px">Tue to Sat, 09:30 to 17:00</b></div><div><small>Peat</small><b>Medium</b></div></div></div>
+<main class="wrap">
+<section class="sec story-first"><div class="eyebrow">Seanchas · The story</div><h2>The new kid on the Sound</h2><div class="story"><p>Ardnahoe was built by the Laing family of the independent bottler Hunter Laing, who found the four-acre site above Ardnahoe Loch in 2015. The first spirit ran in 2018.</p><p>Legendary Islay distiller Jim McEwan, who had run Bowmore and brought Bruichladdich back to life, came out of retirement to set up production.</p><p>It's the only distillery on Islay to cool its spirit in worm tubs: long copper coils sitting in tanks of cold water. It's slower and less efficient, but it gives a heavier, more textured spirit. The two copper stills have unusually long lyne arms, and the barley is milled on a 100-year-old Boby mill, the only second-hand kit in the place.</p><p><b>Look out for:</b> Ardnahoe Loch just behind the distillery, where the little rowing boats sit on the water, and the CalMac ferry crossing the Sound to Port Askaig below.</p><figure class="st-img"><img src="img/anx-9.jpg" alt="Ardnahoe Loch and the Sound of Islay" loading="lazy"><figcaption>Ardnahoe Loch and the Sound of Islay</figcaption></figure></div></section>
+<section class="intro"><div><div class="eyebrow" style="color:var(--accent)">The distillery</div><p class="lede" style="margin-top:10px">Islay&#x27;s youngest working distillery, opened in 2018 above the Sound of Islay. Its long worm tubs cool the spirit slowly, and the visitor centre has one of the best views on the island.</p><p class="style"><b style="color:var(--ink)">House style.</b> Young and still finding its voice: peated, fruity and fuller than you might expect.</p><p class="note">Ardnahoe is new, so its range is still growing. Expect changes by 2027.</p></div>
+<div><svg class="radar" viewBox="0 0 440 340" role="img" aria-label="Flavour profile of Ardnahoe: Smoke 3.5 of 5, Maritime 2.5 of 5, Fruit 3 of 5, Sweetness 3 of 5, Spice 2.5 of 5, Body 3 of 5"><polygon points="220.0,147.0 239.9,158.5 239.9,181.5 220.0,193.0 200.1,181.5 200.1,158.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,124.0 259.8,147.0 259.8,193.0 220.0,216.0 180.2,193.0 180.2,147.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,101.0 279.8,135.5 279.8,204.5 220.0,239.0 160.2,204.5 160.2,135.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,78.0 299.7,124.0 299.7,216.0 220.0,262.0 140.3,216.0 140.3,124.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,55.0 319.6,112.5 319.6,227.5 220.0,285.0 120.4,227.5 120.4,112.5" fill="none" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="55.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="112.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="285.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="112.5" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,89.5 269.8,141.2 279.8,204.5 220.0,239.0 170.2,198.8 160.2,135.5" fill="var(--accent)" fill-opacity=".22" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="220.0" cy="89.5" r="4" fill="var(--accent)"/><text x="220.0" y="29.0" text-anchor="middle" dominant-baseline="central">SMOKE<tspan class="val" dx="6">3.5</tspan></text><circle cx="269.8" cy="141.2" r="4" fill="var(--accent)"/><text x="342.1" y="99.5" text-anchor="start" dominant-baseline="central">MARITIME<tspan class="val" dx="6">2.5</tspan></text><circle cx="279.8" cy="204.5" r="4" fill="var(--accent)"/><text x="342.1" y="240.5" text-anchor="start" dominant-baseline="central">FRUIT<tspan class="val" dx="6">3</tspan></text><circle cx="220.0" cy="239.0" r="4" fill="var(--accent)"/><text x="220.0" y="311.0" text-anchor="middle" dominant-baseline="central">SWEETNESS<tspan class="val" dx="6">3</tspan></text><circle cx="170.2" cy="198.8" r="4" fill="var(--accent)"/><text x="97.9" y="240.5" text-anchor="end" dominant-baseline="central">SPICE<tspan class="val" dx="6">2.5</tspan></text><circle cx="160.2" cy="135.5" r="4" fill="var(--accent)"/><text x="97.9" y="99.5" text-anchor="end" dominant-baseline="central">BODY<tspan class="val" dx="6">3</tspan></text></svg><p class="radar-cap">Average flavour profile across the core range, scored 0 to 5. Our own tasting estimate.</p></div></section>
+<section class="sec"><div class="eyebrow">Blasad · What to taste</div><h2>In the glass</h2><div class="drams"><div class="dram"><span class="abv">Varies</span><h3>Inaugural releases</h3><span class="cask">Bourbon and sherry casks</span><p>Fresh peat smoke over orchard fruit.</p></div><div class="dram"><span class="abv">Varies</span><h3>Distillery-only bottlings</h3><span class="cask">Single casks and small batches</span><p>Ask what is open on the day.</p></div><div class="dram"><span class="abv">High strength</span><h3>New make and cask samples</h3><span class="cask">Straight from the warehouse</span><p>A rare chance to taste whisky before it is whisky.</p></div></div>
+<p class="credits">Core range as of 2026. Bottlings, strengths and what's open at the bar can change by 2027.</p></section>
+<section class="sec"><div class="eyebrow">Dealbhan · Pictures</div><h2>The place</h2><div class="gallery"><figure><img src="img/ph-ardnahoe-2.jpg" alt="Ardnahoe, photograph 2" loading="lazy"></figure><figure><img src="img/ph-ardnahoe-3.jpg" alt="Ardnahoe, photograph 3" loading="lazy"></figure></div></section>
+<section class="sec"><div class="eyebrow">Tadhal · Visiting</div><h2>On the day</h2><div class="visit">
+<div><h3>Opening</h3><p>Tue to Sat, 09:30 to 17:00. Closed Sundays and Mondays. Hours shown are from 2026, so check before booking.</p></div>
+<div><h3>Book</h3><p>Tours and tastings sell out in summer. Book on the <a href="https://ardnahoedistillery.com/" target="_blank" rel="noopener">official website</a>.</p></div>
+<div><h3>Find it</h3><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Ardnahoe%20Distillery%2C%20Isle%20of%20Islay" target="_blank" rel="noopener">Open in Google Maps</a>. On our plan for Day 5, The Sound of Islay.</p></div></div></section>
+
+<section class="sec" id="our-tour"><div class="eyebrow">Ar turas · Our tour</div><h2>Tasting Flight</h2>
+<div class="tourpick">
+  <div class="tp-main">
+    <div class="tp-facts"><div><small>When</small><b>Wed 30 June, 15:00</b></div><div><small>Length</small><b>1½ hours</b></div><div><small>Price</small><b>about £30 each</b></div><div><small>In rand</small><b>about R700</b></div></div>
+    <p class="tp-lede">The last stop of the north-coast day. Ardnahoe only runs its distillery tours on Tuesdays and Thursdays, so on Wednesday we sit down to a tasting flight instead, with the whole Sound of Islay and the Paps of Jura outside the window.</p>
+    <ul class="hlist"><li><b>A flight of Ardnahoe</b>, Islay's newest-built distillery, with its classically peated spirit matured in bourbon and sherry casks.</li><li><b>The view.</b> The visitor centre looks straight across the Sound to Jura. Reviewers call the setting beautiful.</li><li><b>Café first.</b> The café and bar serve coffee, cakes, scones and savoury snacks until 16:00. Arrive by 14:30 for a late lunch before the tasting.</li><li><b>Drivers</b> can take their drams away.</li></ul>
+    <p class="hnote">18 and over only. The price isn't published yet, so we've estimated £30 each. This is Ardnahoe's 2026 timetable, which they say may change from July, so check when the 2027 dates come out. Open Tuesday to Saturday, 09:30 to 17:00. Book online or call 01496 840777.</p>
+    <a class="btn" href="https://ardnahoedistillery.com/pages/tours-tastings" target="_blank" rel="noopener">Book on ardnahoedistillery.com &rarr;</a>
+  </div>
+  <div class="tp-side">
+    <div class="score"><b>4.5</b><span>Tripadvisor · 210 reviews</span></div><div class="score"><b>#3</b><span>of 5 things to do around Port Askaig</span></div>
+    <h3>What visitors say</h3><ul class="hlist"><li>A guide described as knowledgeable and entertaining.</li><li>The setting above the Sound of Islay, with Jura across the water.</li><li>Good value: one reviewer paid £12 for a tour here against £20 next door at Bunnahabhain.</li></ul>
+    <h3>Worth knowing</h3><ul class="hlist"><li>Closed Sundays and Mondays.</li><li>The whisky is young. The first releases only came out recently, so expect fresh, punchy drams.</li><li>If you want the production tour, it means coming back on a Tuesday or Thursday.</li></ul>
+  </div>
+</div>
+<h3 class="sub-h">Optional upgrades</h3><p class="hnote" style="margin-bottom:12px">Not in our budget. More expensive options if anyone wants to treat themselves (2026 prices).</p><div class="tablewrap"><table class="opts"><thead><tr><th>Experience</th><th>Price</th><th>Length</th><th>What you get</th></tr></thead><tbody><tr><th scope="row">Warehouse No.1 Tasting Experience</th><td class="num">£50</td><td>About 2 hours</td><td>Drams drawn from four casks exclusive to this tasting, in the dunnage warehouse.</td></tr></tbody></table></div>
+</section><section class="sec"><div class="eyebrow">Barrachd dhealbhan · More pictures</div><h2>Around Ardnahoe</h2><div class="pegal"><figure class="wide"><img src="img/anx-10.jpg" alt="The Jura coast across the Sound from Ardnahoe" loading="lazy"><figcaption>The Jura coast across the Sound from Ardnahoe</figcaption></figure><figure class=""><img src="img/anx-1.jpg" alt="Ardnahoe above the Sound, with Jura behind" loading="lazy"><figcaption>Ardnahoe above the Sound, with Jura behind</figcaption></figure><figure class=""><img src="img/anx-2.jpg" alt="The sign before it opened in 2018" loading="lazy"><figcaption>The sign before it opened in 2018</figcaption></figure><figure class=""><img src="img/anx-4.jpg" alt="Building the distillery" loading="lazy"><figcaption>Building the distillery</figcaption></figure><figure class=""><img src="img/anx-5.jpg" alt="The way in" loading="lazy"><figcaption>The way in</figcaption></figure><figure class=""><img src="img/anx-6.jpg" alt="A rowing boat on Ardnahoe Loch" loading="lazy"><figcaption>A rowing boat on Ardnahoe Loch</figcaption></figure><figure class=""><img src="img/anx-16.jpg" alt="The Paps of Jura and a ferry in the Sound" loading="lazy"><figcaption>The Paps of Jura and a ferry in the Sound</figcaption></figure><figure class=""><img src="img/anx-12.jpg" alt="The jetty on Ardnahoe Loch" loading="lazy"><figcaption>The jetty on Ardnahoe Loch</figcaption></figure></div><p class="credits">More photographs from Wikimedia Commons: Bjarne Henning Kvaale, <a href="https://commons.wikimedia.org/wiki/File:Jura_seen_from_Ardnahoe_-_panoramio.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; Mary and Angus Hogg, <a href="https://commons.wikimedia.org/wiki/File:Ardnahoe_Distillery_View_-_geograph.org.uk_-_6142352.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; M J Richardson, <a href="https://commons.wikimedia.org/wiki/File:Entrance_to_Ardnahoe_Distillery_-_geograph.org.uk_-_5774814.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Russel Wills, <a href="https://commons.wikimedia.org/wiki/File:Construction_in_progress_on_the_new_Ardnahoe_Distillery_-_geograph.org.uk_-_5441368.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Andrew Abbott, <a href="https://commons.wikimedia.org/wiki/File:New_road_to_the_Ardnahoe_distillery_-_geograph.org.uk_-_6134783.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Andrew Abbott, <a href="https://commons.wikimedia.org/wiki/File:Ardnahoe_Loch_-_geograph.org.uk_-_6134767.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Brian Turner, <a href="https://commons.wikimedia.org/wiki/File:From_Nr_Loch_Ardnahoe_Islay_looking_to_Jura_-_geograph.org.uk_-_138153.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Russel Wills, <a href="https://commons.wikimedia.org/wiki/File:Jetty_on_Ardnahoe_Loch_-_geograph.org.uk_-_5441372.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>.</p></section>
+<div class="nextup"><a href="d-bunnahabhain.html"><small>Previous</small><b>Bunnahabhain</b></a><a href="d-jura.html"><small>Next</small><b>Jura</b></a></div>
+<p class="credits">Photographs from Wikimedia Commons. Hero: Andrew Abbott, <a href="https://commons.wikimedia.org/wiki/File:Ardnahoe_distillery_-_geograph.org.uk_-_6134780.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Photo 2: Andrew Abbott, <a href="https://commons.wikimedia.org/wiki/File:Ardnahoe_distillery_-_geograph.org.uk_-_6990092.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; Photo 3: M J Richardson, <a href="https://commons.wikimedia.org/wiki/File:Ardnahoe_Distillery_-_geograph.org.uk_-_5774822.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>. This is a private trip guide and is not affiliated with Ardnahoe.</p>
+</main>
+<footer class="site"><div class="wrap"><p class="sign">Slàinte mhath.</p><p><a href="index.html">Back to the Islay week</a></p></div></footer>
+<script>if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));</script>
+</body></html>

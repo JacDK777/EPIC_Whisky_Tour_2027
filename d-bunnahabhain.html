@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#13243A"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Islay 40"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bunnahabhain</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>:root{--accent:#6A4A2A;--accent-d:#D8AE80;--accent-soft:color-mix(in srgb,#6A4A2A 12%,transparent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--accent:#D8AE80;--accent-soft:color-mix(in srgb,#D8AE80 16%,transparent)}}
+:root[data-theme="dark"]{--accent:#D8AE80;--accent-soft:color-mix(in srgb,#D8AE80 16%,transparent)}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+.tourpick{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}
+.tp-main,.tp-side{background:var(--surface);border:1px solid var(--line);padding:22px;display:grid;gap:12px}
+.tp-main{border-top:4px solid var(--accent)}
+.tp-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.tp-facts div,.plotcard div{display:grid;gap:2px}
+.tp-facts small,.plotcard small{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tp-facts b,.plotcard b{font-family:var(--display);font-size:21px;font-weight:600}
+.tp-lede{font-family:var(--display);font-size:21px;line-height:1.35}
+.hlist{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--muted)}
+.hlist b{color:var(--ink);font-weight:600}
+.hlist a{color:var(--accent);font-weight:600}
+.hnote{color:var(--muted);border-left:2px solid var(--accent);padding-left:12px;font-size:15px}
+.tp-main .btn{justify-self:start;border-color:var(--accent);color:var(--accent)}
+.tp-main .btn:hover{background:var(--accent);color:var(--surface)}
+.tp-side h3{font-size:21px;margin-top:6px}
+.score{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.score b{font-family:var(--display);font-size:38px;font-weight:600;color:var(--accent);line-height:1}
+.score span{color:var(--muted);font-size:14px}
+.sub-h{font-size:24px;margin:28px 0 10px}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line)}
+.opts{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.opts th,.opts td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.opts thead th{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.opts tbody th{font-family:var(--display);font-size:19px;font-weight:600}
+.opts tr.pick{background:var(--accent-soft)}
+.opts tr.pick th{color:var(--accent)}
+.opts td:last-child{color:var(--muted)}
+.opts td:nth-child(2),.opts td:nth-child(3){white-space:nowrap}
+.friends{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+.fr-text{display:grid;gap:14px}
+.fr-text h3{font-size:22px}
+.plotcard{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);padding:16px 18px}
+.fr-map{margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.plotmap{width:100%;height:auto;display:block}
+.fr-map figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+.pegal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pegal figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--navy)}
+.pegal figure.wide{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.pegal img{width:100%;height:100%;object-fit:cover}
+.pegal figure:last-child:nth-child(8){grid-column:span 2;aspect-ratio:8/3}
+.pegal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 12px 8px;font-size:13px;color:#fff;background:linear-gradient(transparent,rgba(8,14,20,.75))}
+@media (max-width:760px){.tourpick,.friends{grid-template-columns:1fr}.pegal{grid-template-columns:1fr 1fr}.pegal figure.wide{grid-column:span 2;grid-row:auto;aspect-ratio:3/2}.pegal figure:last-child:nth-child(8){aspect-ratio:3/2}.plotcard{grid-template-columns:1fr}}
+
+.story-first{padding-bottom:0}
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 24px;align-items:start}
+.story p{margin:0 0 12px;color:var(--muted);grid-column:1}
+.story p:first-child{font-family:var(--display);font-size:21px;line-height:1.35;color:var(--ink)}
+.story .st-img{grid-column:2;grid-row:1 / span 6;margin:0;background:var(--surface);border:1px solid var(--line);padding:8px}
+.story .st-img img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover}
+.story .st-img figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+@media (max-width:760px){.story{grid-template-columns:1fr}.story .st-img{grid-column:1;grid-row:auto}}
+:root{--m-sea:#D3DEE5;--m-wl:#9DB2C0;--m-land:#EFECE2;--m-coast:#13243A;--m-road:#B9A27A;--m-lake:#C4D4DD;--m-label:#13243A;--m-sealabel:#4C6C84;--m-hill:#7A6A52;--rt-bus:#B47A12;--rt-walk:#13243A;--rt-taxi:#8E3B97;--rt-ferry:#1D6E9E;--rt-flight:#9B2C2C;}@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}}:root[data-theme="dark"]{--m-sea:#0A1520;--m-wl:#3A5A72;--m-land:#25323D;--m-coast:#D3B878;--m-road:#5B6773;--m-lake:#14293A;--m-label:#ECE4D0;--m-sealabel:#8FB1C8;--m-hill:#8F8A7C;--rt-bus:#EDBE5C;--rt-walk:#F4EEDF;--rt-taxi:#DDA0E8;--rt-ferry:#7CC6EE;--rt-flight:#F09A9A;}</style>
+</head><body>
+<div class="topbar"><div class="wrap"><a href="index.html#distilleries">&larr; The Islay week</a><nav><a href="d-caolila.html">&lsaquo; Caol Ila</a><a href="d-ardnahoe.html">Ardnahoe &rsaquo;</a></nav></div></div>
+<header class="dhero"><img src="img/ph-bunnahabhain-1.jpg" alt="Bunnahabhain distillery"><div class="shade"></div>
+<div class="wrap"><div class="eyebrow">Day 5 · Wednesday 30 June 2027</div><h1>Bunnahabhain</h1>
+<p class="gd">Bun na h-Abhainne <span>· Gaelic for “mouth of the river” · say boo-na-HAV-en</span></p></div></header>
+<div class="accentbar"></div>
+<div class="factsband"><div class="wrap facts"><div><small>Founded</small><b class="num">1881</b></div><div><small>On our trip</small><b>Wed 30 June</b></div><div><small>Visitor centre</small><b style="font-size:19px">Daily, 10:00 to 17:00</b></div><div><small>Peat</small><b>Light</b></div></div></div>
+<main class="wrap">
+<section class="sec story-first"><div class="eyebrow">Seanchas · The story</div><h2>At the mouth of the river</h2><div class="story"><p>Bunnahabhain was built in 1881 by the Islay Distillery Company, a group that included William Robertson and the Greenlees brothers, and the first spirit ran in 1883. They built a whole village for the workers around it.</p><p>For its first eighty years the distillery depended on the sea. Barley, coal and casks came in by boat to its own pier, and the road to Port Askaig was only built in 1960.</p><p>Its stills are the tallest on Islay, with long swan necks that make a lighter spirit, and the water comes from a spring by the Margadale River. That's why most Bunnahabhain is unpeated, nutty and sherried. It also goes into the Black Bottle blend.</p><p><b>Don't miss:</b> walk out along the pier after the tasting. The Paps of Jura sit right across the Sound, and it's the best photo of the day.</p><figure class="st-img"><img src="img/bnx-9.jpg" alt="The Paps of Jura from the shore at Bunnahabhain" loading="lazy"><figcaption>The Paps of Jura from the shore at Bunnahabhain</figcaption></figure></div></section>
+<section class="intro"><div><div class="eyebrow" style="color:var(--accent)">The distillery</div><p class="lede" style="margin-top:10px">At the end of a long single-track road on the north coast. Bunnahabhain is mostly unpeated, which makes it the gentle surprise of the week.</p><p class="style"><b style="color:var(--ink)">House style.</b> Nutty, sherried and lightly salty. The island air, without the bonfire.</p></div>
+<div><svg class="radar" viewBox="0 0 440 340" role="img" aria-label="Flavour profile of Bunnahabhain: Smoke 1 of 5, Maritime 3 of 5, Fruit 4 of 5, Sweetness 3.5 of 5, Spice 2.5 of 5, Body 3.5 of 5"><polygon points="220.0,147.0 239.9,158.5 239.9,181.5 220.0,193.0 200.1,181.5 200.1,158.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,124.0 259.8,147.0 259.8,193.0 220.0,216.0 180.2,193.0 180.2,147.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,101.0 279.8,135.5 279.8,204.5 220.0,239.0 160.2,204.5 160.2,135.5" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,78.0 299.7,124.0 299.7,216.0 220.0,262.0 140.3,216.0 140.3,124.0" fill="none" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,55.0 319.6,112.5 319.6,227.5 220.0,285.0 120.4,227.5 120.4,112.5" fill="none" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="55.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="112.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="319.6" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="220.0" y2="285.0" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="227.5" stroke="var(--line)" stroke-width="1"/><line x1="220" y1="170" x2="120.4" y2="112.5" stroke="var(--line)" stroke-width="1"/><polygon points="220.0,147.0 279.8,135.5 299.7,216.0 220.0,250.5 170.2,198.8 150.3,129.8" fill="var(--accent)" fill-opacity=".22" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="220.0" cy="147.0" r="4" fill="var(--accent)"/><text x="220.0" y="29.0" text-anchor="middle" dominant-baseline="central">SMOKE<tspan class="val" dx="6">1</tspan></text><circle cx="279.8" cy="135.5" r="4" fill="var(--accent)"/><text x="342.1" y="99.5" text-anchor="start" dominant-baseline="central">MARITIME<tspan class="val" dx="6">3</tspan></text><circle cx="299.7" cy="216.0" r="4" fill="var(--accent)"/><text x="342.1" y="240.5" text-anchor="start" dominant-baseline="central">FRUIT<tspan class="val" dx="6">4</tspan></text><circle cx="220.0" cy="250.5" r="4" fill="var(--accent)"/><text x="220.0" y="311.0" text-anchor="middle" dominant-baseline="central">SWEETNESS<tspan class="val" dx="6">3.5</tspan></text><circle cx="170.2" cy="198.8" r="4" fill="var(--accent)"/><text x="97.9" y="240.5" text-anchor="end" dominant-baseline="central">SPICE<tspan class="val" dx="6">2.5</tspan></text><circle cx="150.3" cy="129.8" r="4" fill="var(--accent)"/><text x="97.9" y="99.5" text-anchor="end" dominant-baseline="central">BODY<tspan class="val" dx="6">3.5</tspan></text></svg><p class="radar-cap">Average flavour profile across the core range, scored 0 to 5. Our own tasting estimate.</p></div></section>
+<section class="sec"><div class="eyebrow">Blasad · What to taste</div><h2>In the glass</h2><div class="drams"><div class="dram"><span class="abv">46.3%</span><h3>12 Year Old</h3><span class="cask">Bourbon and sherry casks</span><p>Hazelnut, dried fruit and a salty tang.</p></div><div class="dram"><span class="abv">46.3%</span><h3>Stiùireadair</h3><span class="cask">First-fill sherry casks</span><p>Sweet, spicy and easy-drinking.</p></div><div class="dram"><span class="abv">46.3%</span><h3>Toiteach A Dhà</h3><span class="cask">Peated, sherry-matured</span><p>The smoky Bunnahabhain. Smoke and Christmas cake.</p></div><div class="dram"><span class="abv">46.3%</span><h3>18 Year Old</h3><span class="cask">Sherry casks</span><p>Toffee, leather and a long nutty finish.</p></div></div>
+<p class="credits">Core range as of 2026. Bottlings, strengths and what's open at the bar can change by 2027.</p></section>
+<section class="sec"><div class="eyebrow">Dealbhan · Pictures</div><h2>The place</h2><div class="gallery"><figure><img src="img/ph-bunnahabhain-2.jpg" alt="Bunnahabhain, photograph 2" loading="lazy"></figure><figure><img src="img/ph-bunnahabhain-3.jpg" alt="Bunnahabhain, photograph 3" loading="lazy"></figure></div></section>
+<section class="sec"><div class="eyebrow">Tadhal · Visiting</div><h2>On the day</h2><div class="visit">
+<div><h3>Opening</h3><p>Daily, 10:00 to 17:00. Open every day. Hours shown are from 2026, so check before booking.</p></div>
+<div><h3>Book</h3><p>Tours and tastings sell out in summer. Book on the <a href="https://www.bunnahabhain.com/" target="_blank" rel="noopener">official website</a>.</p></div>
+<div><h3>Find it</h3><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Bunnahabhain%20Distillery%2C%20Isle%20of%20Islay" target="_blank" rel="noopener">Open in Google Maps</a>. On our plan for Day 5, The Sound of Islay.</p></div></div></section>
+
+<section class="sec" id="our-tour"><div class="eyebrow">Ar turas · Our tour</div><h2>Warehouse 9 Tasting</h2>
+<div class="tourpick">
+  <div class="tp-main">
+    <div class="tp-facts"><div><small>When</small><b>Wed 30 June, 12:30</b></div><div><small>Length</small><b>about 1½ hours</b></div><div><small>Price</small><b>£50 each</b></div><div><small>In rand</small><b>about R1,100</b></div></div>
+    <p class="tp-lede">The one reviewers call the highlight. You sit among the casks behind the black No.9 door while a guide draws cask-strength whisky straight from the barrel, both the classic unpeated Bunnahabhain and the smoky Mòine.</p>
+    <ul class="hlist"><li><b>Four big drams:</b> 25 ml each at cask strength, chosen by the Master Blender.</li><li><b>Unpeated and peated side by side.</b> The sherried house style next to Mòine, the smoky Bunnahabhain.</li><li><b>Fill your own.</b> Afterwards you can buy a 20 cl bottle hand-filled and labelled from your favourite cask, with £5 off.</li><li><b>The view.</b> The distillery looks across its bay to the Paps of Jura, one of the best views on Islay.</li></ul>
+    <p class="hnote">18 and over only. Bookings are non-refundable, though they may move you to another time if you ask early. The warehouse is cold, so bring a jacket. There's no café, only whisky at the bar, so bring snacks for the day. Open every day, 10:00 to 17:00.</p>
+    <a class="btn" href="https://bunnahabhain.digitickets.co.uk/event-tickets/34256?catID=26524" target="_blank" rel="noopener">Book Warehouse 9 &rarr;</a>
+  </div>
+  <div class="tp-side">
+    <div class="score"><b>4.6</b><span>Tripadvisor · 707 reviews</span></div><div class="score"><b>#1</b><span>of 5 things to do around Port Askaig</span></div>
+    <h3>What visitors say</h3><ul class="hlist"><li>The waterfront setting and the view of the Paps of Jura.</li><li>Warehouse 9, with samples straight from the cask. One couple called it "one of the most fun distillery tours we have had".</li><li>Knowledgeable guides and generous pours. Elise, Paul, Kyle, Mark and Cat all get named.</li><li>The new visitor centre and shop.</li></ul>
+    <h3>Worth knowing</h3><ul class="hlist"><li>The bar only serves whisky: no soft drinks, beer or food.</li><li>The road in is single track with blind bends. Our driver will be glad of a slow pace.</li><li>One reviewer found a tour rushed late in the day, so an early-afternoon slot suits us.</li></ul>
+  </div>
+</div>
+<h3 class="sub-h">Optional upgrades</h3><p class="hnote" style="margin-bottom:12px">Not in our budget. More expensive options if anyone wants to treat themselves (2026 prices).</p><div class="tablewrap"><table class="opts"><thead><tr><th>Experience</th><th>Price</th><th>Length</th><th>What you get</th></tr></thead><tbody><tr><th scope="row">Ultimate Bunnahabhain Tasting</th><td class="num">£275</td><td>Not stated</td><td>The 25, 30 and 40 Year Old plus two exclusive releases.</td></tr></tbody></table></div>
+</section><section class="sec"><div class="eyebrow">Barrachd dhealbhan · More pictures</div><h2>Around Bunnahabhain</h2><div class="pegal"><figure class="wide"><img src="img/bnx-1.jpg" alt="Bunnahabhain along its bay" loading="lazy"><figcaption>Bunnahabhain along its bay</figcaption></figure><figure class=""><img src="img/bnx-2.jpg" alt="The name on the warehouse wall" loading="lazy"><figcaption>The name on the warehouse wall</figcaption></figure><figure class=""><img src="img/bnx-3.jpg" alt="Casks stacked by the shore" loading="lazy"><figcaption>Casks stacked by the shore</figcaption></figure><figure class=""><img src="img/bnx-4.jpg" alt="Red bollards on the pier" loading="lazy"><figcaption>Red bollards on the pier</figcaption></figure><figure class=""><img src="img/bnx-5.jpg" alt="The famous helmsman logo" loading="lazy"><figcaption>The famous helmsman logo</figcaption></figure><figure class=""><img src="img/bnx-6.jpg" alt="The old courtyard buildings" loading="lazy"><figcaption>The old courtyard buildings</figcaption></figure><figure class=""><img src="img/bnx-7.jpg" alt="The distillery cottages" loading="lazy"><figcaption>The distillery cottages</figcaption></figure><figure class=""><img src="img/bnx-8.jpg" alt="The pier, with Jura behind" loading="lazy"><figcaption>The pier, with Jura behind</figcaption></figure></div><p class="credits">More photographs from Wikimedia Commons: Martin Cígler, <a href="https://commons.wikimedia.org/wiki/File:Bunahabhain_Distillery,_Islay_-_panoramio.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; Bjarne Henning Kvaale, <a href="https://commons.wikimedia.org/wiki/File:Bunnahabhain_distillery_-_panoramio_(3).jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; M J Richardson, <a href="https://commons.wikimedia.org/wiki/File:Barrels_at_Bunnahabhain_-_geograph.org.uk_-_5773131.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; MSeses, <a href="https://commons.wikimedia.org/wiki/File:Scotland_Argyll_Bute_Islay_Bunnahabhain_Distillery_03.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a>; MSeses, <a href="https://commons.wikimedia.org/wiki/File:Scotland_Argyll_Bute_Islay_Bunnahabhain_Distillery_04.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a>; Bjarne Henning Kvaale, <a href="https://commons.wikimedia.org/wiki/File:Bunnahabhain_distillery_-_panoramio_(4).jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>; M J Richardson, <a href="https://commons.wikimedia.org/wiki/File:Distillery_cottages_at_Bunnahabhain_-_geograph.org.uk_-_5773117.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>; M J Richardson, <a href="https://commons.wikimedia.org/wiki/File:The_pier_at_Bunnahabhain_-_geograph.org.uk_-_5773106.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>.</p></section>
+<div class="nextup"><a href="d-caolila.html"><small>Previous</small><b>Caol Ila</b></a><a href="d-ardnahoe.html"><small>Next</small><b>Ardnahoe</b></a></div>
+<p class="credits">Photographs from Wikimedia Commons. Hero: ErikRombaut, <a href="https://commons.wikimedia.org/wiki/File:Bunnahabhain_distillery.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a>; Photo 2: MSeses, <a href="https://commons.wikimedia.org/wiki/File:Scotland_Argyll_Bute_Islay_Bunnahabhain_Distillery_01.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a>; Photo 3: Euan Nelson, <a href="https://commons.wikimedia.org/wiki/File:Bunnahabhain_Distillery_-_geograph.org.uk_-_2325147.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a>. This is a private trip guide and is not affiliated with Bunnahabhain.</p>
+</main>
+<footer class="site"><div class="wrap"><p class="sign">Slàinte mhath.</p><p><a href="index.html">Back to the Islay week</a></p></div></footer>
+<script>if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));</script>
+</body></html>
