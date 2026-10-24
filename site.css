@@ -48,6 +48,19 @@ footer.site .wrap{padding-block:28px 40px;display:grid;gap:10px}
 footer.site a{color:var(--navy-ink)}
 footer.site .sign{font-family:var(--display);font-style:italic;font-size:24px;color:var(--navy-ink)}
 
+.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.bcard{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--gold);padding:18px;display:grid;gap:6px;align-content:start}
+.bcard small{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.bcard b{font-family:var(--display);font-size:34px;font-weight:600;color:var(--gold);line-height:1.1}
+.bcard ul{margin:6px 0 0;padding-left:18px;display:grid;gap:6px;color:var(--muted);font-size:15px}
+.bcard ul.tours{list-style:none;padding:0}
+.bcard ul.tours li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding-bottom:5px}
+.bcard ul.tours span{white-space:nowrap;color:var(--ink);font-variant-numeric:tabular-nums}
+.bnot{margin-top:18px;border-left:3px solid var(--gold);padding:4px 0 4px 16px;display:grid;gap:8px;max-width:760px}
+.bnot h3{font-size:21px}
+.bnot ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:6px}
+.incl-tag{display:table;margin:4px 0 4px;padding:1px 8px;border-radius:99px;font-size:11.5px;font-weight:600;letter-spacing:.04em;background:var(--gold-soft);color:var(--gold);vertical-align:1px;font-style:normal;white-space:nowrap}
+
 .topbar{background:var(--navy);color:var(--navy-ink)}
 .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:12px;font-size:14px;flex-wrap:wrap}
 .topbar a{color:var(--navy-ink);text-decoration:none;font-weight:600}
